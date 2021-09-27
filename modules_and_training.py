@@ -34,8 +34,6 @@ class Time_GAN_module(nn.Module):
           self.rnn = nn.LSTM(input_size, hidden_dim, num_layers, batch_first = True)
         # Fully connected layer
         self.fc = nn.Linear(hidden_dim, output_size)
-
-n_layers
         
     def forward(self, x):
     
