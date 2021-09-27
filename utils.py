@@ -85,7 +85,7 @@ def visualization (ori_data, generated_data, analysis):
     - analysis: tsne or pca
   """  
   # Analysis sample size (for faster computation)
-  anal_sample_no = min([1000, len(ori_data)])
+  anal_sample_no = min([200, len(ori_data)])
   idx = np.random.permutation(len(ori_data))[:anal_sample_no]
     
   # Data preprocessing
