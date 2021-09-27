@@ -15,25 +15,27 @@ class Time_GAN_module(nn.Module):
     
     input_size = dim of data (depending if module operates on latent or non-latent space)
     """
-    def __init__(self, input_size, output_size, hidden_dim, n_layers, activation=torch.sigmoid, rnn_type="gru"):
+    def __init__(self, input_size, output_size, hidden_dim, num_layers, activation=torch.sigmoid, rnn_type="gru"):
         super(Time_GAN_module, self).__init__()
 
         # Parameters
         self.hidden_dim = hidden_dim
-        self.n_layers = n_layers
+        self.num_layers = num_layers
         self.sigma = activation
         self.rnn_type = rnn_type
 
         #Defining the layers
         # RNN Layer
         if self.rnn_type == "gru":
-          self.rnn = nn.GRU(input_size, hidden_dim, n_layers, batch_first=True)
+          self.rnn = nn.GRU(input_size, hidden_dim, num_layers, batch_first=True)
         elif self.rnn_type == "rnn":
           self.rnn = nn.RNN(input_size, hidden_dim, num_layers, batch_first = True) 
         elif self.rnn_type == "lstm": # input params still the same for lstm
           self.rnn = nn.LSTM(input_size, hidden_dim, num_layers, batch_first = True)
         # Fully connected layer
         self.fc = nn.Linear(hidden_dim, output_size)
+
+n_layers
         
     def forward(self, x):
     
@@ -66,7 +68,7 @@ class Time_GAN_module(nn.Module):
     def init_hidden(self, batch_size):
         # This method generates the first hidden state of zeros which we'll use in the forward pass
         # We'll send the tensor holding the hidden state to the device we specified earlier as well
-        hidden = torch.zeros(self.n_layers, batch_size, self.hidden_dim)
+        hidden = torch.zeros(self.num_layers, batch_size, self.hidden_dim)
         return hidden
     
 def TimeGAN(data, parameters):
@@ -95,11 +97,11 @@ def TimeGAN(data, parameters):
   checkpoints = {}
 
   # instantiating every module we're going to train
-  Embedder = Time_GAN_module(input_size=z_dim, output_size=hidden_dim, hidden_dim=hidden_dim, n_layers=num_layers)
-  Recovery = Time_GAN_module(input_size=hidden_dim, output_size=dim, hidden_dim=hidden_dim, n_layers=num_layers)
-  Generator = Time_GAN_module(input_size=dim, output_size=hidden_dim, hidden_dim=hidden_dim, n_layers=num_layers)
-  Supervisor = Time_GAN_module(input_size=hidden_dim, output_size=hidden_dim, hidden_dim=hidden_dim, n_layers=num_layers)
-  Discriminator = Time_GAN_module(input_size=hidden_dim, output_size=1, hidden_dim=hidden_dim, n_layers=num_layers, activation=nn.Identity)
+  Embedder = Time_GAN_module(input_size=z_dim, output_size=hidden_dim, hidden_dim=hidden_dim, num_layers=num_layers)
+  Recovery = Time_GAN_module(input_size=hidden_dim, output_size=dim, hidden_dim=hidden_dim, num_layers=num_layers)
+  Generator = Time_GAN_module(input_size=dim, output_size=hidden_dim, hidden_dim=hidden_dim, num_layers=num_layers)
+  Supervisor = Time_GAN_module(input_size=hidden_dim, output_size=hidden_dim, hidden_dim=hidden_dim, num_layers=num_layers)
+  Discriminator = Time_GAN_module(input_size=hidden_dim, output_size=1, hidden_dim=hidden_dim, num_layers=num_layers, activation=nn.Identity)
 
   # instantiating all optimizers, 
   # learning rates chosen through experimentation and comparison with results in the paper
