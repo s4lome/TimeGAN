@@ -5,7 +5,7 @@ A pytorch implementation of  Time-series Generative Adversarial Networks (https:
 The Goal was to create smoothed time series data via a GAN. This should be achieved via a combination of https://papers.nips.cc/paper/2019/file/c9efe5f26cd17ba6216bbe2a7d26d490-Paper.pdf and https://arxiv.org/pdf/2106.10414.pdf in PyTorch.
 
 ## Summary 
-In this updated Version I was able to achieve a better recreation of the original time GAN implementation. With increasing size of epochs, the quality (evauluated on the third method of the time gan paper, namely pca and tsne plots) seems to increase. With epochs = 20 I was able to achieve these results: 
+In this updated Version I was able to achieve a better recreation of the original time GAN implementation. With increasing size of epochs, the quality (evauluated on the third method of the time gan paper, namely pca and tsne plots) seems to increase. With epochs = 20 I was able to achieve these results, where we can clearly see that the spread out of snythetic and original data overlaps: 
 
 
 ![alt text](https://github.com/s4lome/TimeGAN/blob/main/quality_plots.png)
