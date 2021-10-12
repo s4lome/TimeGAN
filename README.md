@@ -6,6 +6,8 @@ The Goal was to create smoothed time series data via a GAN. This should be achie
 
 ## Summary 
 In this updated Version I was able to achieve a better recreation of the original time GAN implementation. With increasing size of epochs, the quality (evauluated on the third method of the time gan paper, namely pca and tsne plots) seems to increase. With epochs = 20 I was able to achieve these results: 
+
+
 ![alt text](https://github.com/s4lome/TimeGAN/blob/main/quality_plots.png)
 
 The demo notebook contains less epochs due to memory reasons.
