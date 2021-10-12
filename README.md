@@ -13,7 +13,7 @@ In this updated Version I was able to achieve a better recreation of the origina
 The demo notebook contains less epochs due to memory reasons.
 
 
-Also an Ada FNN Layer was added to the Generator to try if the generated time Series will smooth out. This seems to be the case, however during some test runs without the ada fnn lyer included, smooth(er) curves were also generated, so it is hard to say how beneficial the ada fnn layer is in fact. See the demo notebook for visualizations. 
+Also an Ada FNN Layer was added to the Generator to try if the generated time Series will smooth out. This might (depending on epochs) be the case, however during some test runs without the ada fnn lyer included, smooth(er) curves were also generated, so it is hard to say how beneficial the ada fnn layer is in fact. See the demo notebook for visualizations. 
 
 ## Repository Structure: 
 requirements.txt contains all dependencies and can be run with pip: 
