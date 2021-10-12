@@ -6,6 +6,9 @@ The Goal was to create smoothed time series data via a GAN. This should be achie
 
 ## Summary 
 In this updated Version I was able to achieve a better recreation of the original time GAN implementation. With increasing size of epochs, the quality (evauluated on the third method of the time gan paper, namely pca and tsne plots) seems to increase. With epochs = 20 I was able to achieve these results: 
+![alt text](https://github.com/s4lome/TimeGAN/blob/main/quality_plots.png)
+
+The demo notebook contains less epochs due to memory reasons.
 
 
 Also an Ada FNN Layer was added to the Generator to try if the generated time Series will smooth out. This seems to be the case, however during some test runs without the ada fnn lyer included, smooth(er) curves were also generated, so it is hard to say how beneficial the ada fnn layer is in fact. See the demo notebook for visualizations. 
