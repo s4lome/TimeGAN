@@ -15,6 +15,8 @@ The demo notebook contains less epochs due to memory reasons.
 
 Also an Ada FNN Layer was added to the Generator to try if the generated time Series will smooth out. This might (depending on epochs; higher number of epochs tend to produce smoother curves) be the case, however during some test runs without the ada fnn lyer included, smooth(er) curves were also generated, so it is hard to say how beneficial the ada fnn layer is in fact. See the demo notebook for visualizations. 
 
+General Note: The Training is quite unstable and results seem to be impacted quite strongly by the initialization as well as learning rate, drop out rate and number of epochs.
+
 ## Repository Structure: 
 requirements.txt contains all dependencies and can be run with pip: 
 pip install -r requirements.txt 
