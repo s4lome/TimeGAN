@@ -19,8 +19,13 @@ General Note: The Training is quite unstable and results seem to be impacted qui
 
 ## Repository Structure: 
 requirements.txt contains all dependencies and can be run with pip: 
+
 pip install -r requirements.txt 
+
 utils.py contains all helper functions, mostly from the original repository
+
 modules_and_training contains the main implementation of TimeGAN. The Network blocks are defined there, aswell as a function that runs training and returns the trained networks. 
+
 Demo_Time_GAN_and_ADA_fnn includes a demo run of the time gan without ada fnn layer as well as a demo run with a ada fnn layer.  
+
 Tests.py contains test that were written to ensure correct functioning of each module.
